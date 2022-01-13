@@ -9,17 +9,15 @@ const productData = async () => {
   .then(response => response.json(), error => alert(error))
   .then( product => {
     const articles = product;
-    console.log(articles);
+    console.table(articles);
     for (let article in articles ){
-
-      
           let productLink = document.createElement('a');
           document.querySelector('.items').appendChild(productLink);
           productLink.href = `product.html?id=${product[article]._id}`;
 
            let productArticle = document.createElement('article');
            productLink.appendChild(productArticle);
-//add img 
+//add img and description
           let productImg = document.createElement('img');
           productArticle.appendChild(productImg);
           productImg.src = product[article].imageUrl;
