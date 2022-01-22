@@ -62,7 +62,7 @@ function addToCart(article) {
 
     
     btn_envoyerPanier.addEventListener("click", (event)=>{
-        if (quantityPicked.value > 0 && quantityPicked.value <=100 && quantityPicked.value != 0){
+        if (quantityPicked.value > 0 && quantityPicked.value <=10 && quantityPicked.value != 0){
 
     
     let colorChoice = colorPicked.value;
