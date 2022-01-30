@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 //fetch api Data from server 
 
 const productData = async () => {
