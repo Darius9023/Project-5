@@ -78,29 +78,12 @@ for (let product in productLocalStorage){
     productDelete.className = "deleteItem";
     productDelete.innerHTML = "Delete";
 
-
-    // localStorage.removeItem("idProduit");
-    //     document.querySelector('[data-id="{product-ID}"]').remove();
-    //     addEventListener('click', function(){
-    //     deleteItem.remove();
-    //     })
-
-
         }
     }
 }
 getCart();
     
-       // localStorage.removeItem("idProduit");
-       // document.querySelector('.deleteItem').
-       // addEventListener('click', function(){
-       // idProduit.remove();
-
-    //})
-   
-    //localStorage.clear();
-
-
+       
 // Delete items from cart page function
 const deleteProduct = () => {
     let btn_delete = document.getElementsByClassName("deleteItem");
@@ -244,24 +227,24 @@ const body = JSON.stringify(
  console.log(body);
 
 
- //Send Data to the backend ( api )
- const xhr = new XMLHttpRequest();
-xhr.open("POST", 'http://localhost:3000/api/products/order', true);
-xhr.setRequestHeader('Content-type', 'application/json');
-xhr.onload = function () {
-    console.log(this.status)
-    if (this.status === 201) { 
-     var orderData = JSON.parse(this.responseText);
-              console.log(orderData.orderId);
-        localStorage.setItem("OrderId",orderData.orderId);
+//  //Send Data to the backend ( api )
+// Send Data to Confirmation Page
+  const xhr = new XMLHttpRequest();
+ xhr.open("POST", 'http://localhost:3000/api/products/order', true);
+ xhr.setRequestHeader('Content-type', 'application/json');
+ xhr.onload = function () {
+     console.log(this.status)
+     if (this.status === 201) { 
+      var orderData = JSON.parse(this.responseText);
+               console.log(orderData.orderId);
+         localStorage.setItem("OrderId",orderData.orderId);
 
-        location.href="/front/confirmation.html";
-        // Send Data to Confirmation Page
-    }
-    else {
-        // Show Error Messages
-    }
-}
-xhr.send(body);
-    return false;
+         location.href="/front/confirmation.html";
+     }
+     else {
+      
+     }
+ }
+ xhr.send(body);
+     return false;
 }

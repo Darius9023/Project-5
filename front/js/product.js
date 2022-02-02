@@ -85,7 +85,7 @@ function addToCart(article) {
     
     let productLocalStorage = JSON.parse(localStorage.getItem("productt"));
 
-    
+    //Confirmation message
     const popupConfirmation =() =>{
         if(window.confirm(`You are about to add ${quantityChoice} ${article.name} ${colorChoice} to your cart, please click OK to continue`)){
             window.location.href ="cart.html";
