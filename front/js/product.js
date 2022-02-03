@@ -57,6 +57,8 @@ function getPost(article){
 }
 
 
+//Add to cart button, add items from product page to cart
+
 function addToCart(article) {
     const btn_envoyerPanier = document.querySelector("#addToCart");
 

@@ -125,6 +125,7 @@ const getTotals = () => {
 
     for (let i = 0; i < itemLength; i++) {
         totalPrice += (itemQtt[i].value * productLocalStorage[i].prixProduit);
+        
     }
 
     let productTotalPrice = document.getElementById("totalPrice");
