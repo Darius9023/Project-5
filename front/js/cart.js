@@ -2,7 +2,6 @@
 
 
 let productLocalStorage = JSON.parse(localStorage.getItem("productt"));
-console.table(productLocalStorage);
 const positionEmptyCart = document.querySelector("#cart__items");
 
 //Main tree from the page 
@@ -66,8 +65,10 @@ for (let product in productLocalStorage){
     ProductQuantity.className = "itemQuantity";
     ProductQuantity.setAttribute("type", "number");
     ProductQuantity.setAttribute("min", "1");
-    ProductQuantity.setAttribute("max", "10");
+    ProductQuantity.setAttribute("max", "100");
     ProductQuantity.setAttribute("name", "itemQuantity");
+
+    
 
     let productItemContentSettingsDelete = document.createElement('div');
     cartItemContentSettings.appendChild(productItemContentSettingsDelete);
@@ -118,7 +119,7 @@ const getTotals = () => {
 
     let productTotalQuantity = document.getElementById('totalQuantity');
     productTotalQuantity.innerHTML = totalQtt;
-    console.log(totalQtt);
+    
 
     //Whole amount of price / combined
     let totalPrice = 0;
@@ -130,18 +131,21 @@ const getTotals = () => {
 
     let productTotalPrice = document.getElementById("totalPrice");
     productTotalPrice.innerHTML = totalPrice;
-    console.log(totalPrice);
+    
 }
 
 getTotals();
+
+
+
     
 
 
 
+     
+  
 
-
-
-
+modifyQtt();
 
 
 
@@ -159,7 +163,10 @@ function modifyQtt() {
           
           let quantityModif = productLocalStorage[k].quantiteProduit;
           let qttModifValue = qttModif[k].value;
-          
+          console.log(qttModifValue);
+
+
+          if(qttModifValue > 0 && qttModifValue <= 100 ){
           const resultFind = productLocalStorage.find((el)  => {
              console.log(el.qttModifValue) 
              console.log(quantityModif)
@@ -175,15 +182,16 @@ function modifyQtt() {
           
           
           location.reload();
+            }
+
+            else{
+              alert("Please Enter a quantity between 1 and 100");
+              qttModif[k].value = 0;
+            }
           
       })
   }
 }
-modifyQtt();
-
-
-
-
 
 
 

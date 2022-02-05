@@ -3,7 +3,6 @@
  var str = window.location.href;
  var url = new URL(str);
  var idProduct = url.searchParams.get("id");
- console.table(idProduct);
  let article = "";
 
 const colorPicked = document. querySelector("#colors");
@@ -19,7 +18,6 @@ getArticle();
      })
      .then(async function (resultatAPI) {
          article = await resultatAPI;
-         console.table(article);
          if (article){
              getPost(article);
          }
@@ -63,7 +61,7 @@ function getPost(article){
 
     
      btn_envoyerPanier.addEventListener("click", (event)=>{
-         if (quantityPicked.value > 0 && quantityPicked.value <=10 && quantityPicked.value != 0){
+         if (quantityPicked.value > 0 && quantityPicked.value <=100 && quantityPicked.value != 0){
 
     
      let colorChoice = colorPicked.value;
@@ -106,11 +104,11 @@ function getPost(article){
             console.table(productLocalStorage);
             popupConfirmation();
         
-    //     } else {
-    //         productLocalStorage.push(optionsProduit);
-    //         localStorage.setItem("productt", JSON.stringify(productLocalStorage));
-    //         console.table(productLocalStorage);
-    //         popupConfirmation();
+         } else {
+             productLocalStorage.push(optionsProduit);
+             localStorage.setItem("productt", JSON.stringify(productLocalStorage));
+             console.table(productLocalStorage);
+             popupConfirmation();
          }
     
       } else {
