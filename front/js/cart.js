@@ -137,6 +137,61 @@ getTotals();
     
 
 
+
+
+
+
+
+
+
+
+
+
+//Change quantity in cart page
+
+function modifyQtt() {
+  let qttModif = document.querySelectorAll(".itemQuantity");
+  let qttModifLength = qttModif.length;
+
+  for (let k = 0; k < qttModifLength; k++){
+      qttModif[k].addEventListener("change" , (event) => {
+          event.preventDefault();
+          
+          let quantityModif = productLocalStorage[k].quantiteProduit;
+          let qttModifValue = qttModif[k].value;
+          
+          const resultFind = productLocalStorage.find((el)  => {
+             console.log(el.qttModifValue) 
+             console.log(quantityModif)
+              return el.qttModifValue !== quantityModif 
+                  
+              })
+          
+          resultFind.quantiteProduit = qttModifValue;
+          productLocalStorage[k].quantiteProduit = resultFind.quantiteProduit;
+
+          localStorage.setItem("productt", JSON.stringify(productLocalStorage));
+          
+          
+          
+          location.reload();
+          
+      })
+  }
+}
+modifyQtt();
+
+
+
+
+
+
+
+
+
+
+
+
 //submit form, order minimum amount
 
 function submitForm() {
